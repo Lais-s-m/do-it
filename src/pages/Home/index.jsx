@@ -13,7 +13,7 @@ function Home ({ authenticated }) {
     if (authenticated){
         return <Redirect to='/dashboard'/>;
       }
-
+      
     return (
         <Container>
             <Content>
