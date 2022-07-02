@@ -6,7 +6,7 @@ import Input from '../../components/Input';
 import { Background, Container, Content, AnimationContainer } from './styles';
 import { Link, useHistory } from 'react-router-dom';
 
-import { FiUser, FiMail, FiLock } from 'react-icons/fi';
+import { FiMail, FiLock } from 'react-icons/fi';
 
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -70,6 +70,7 @@ function Login({ authenticated, setAuthenticated }) {
                         label='Senha'
                         placeholder='Uma senha bem segura'
                         type='password'
+                        password = {true}
                         register={register}
                         name='password'
                         error={errors.password?.message}

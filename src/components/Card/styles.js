@@ -6,6 +6,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 250px;
     height: 250px;
     padding: 16px;
@@ -16,7 +17,7 @@ export const Container = styled.div`
     hr {
         width: 80%;
         margin-top: 16px;
-        margin-botton: 16px;
+        margin-bottom: 16px;
     }
 
     button {

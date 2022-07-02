@@ -4,21 +4,21 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 38px;
+    width: 100vw;
 
 `
 
 export const InputContainer = styled.form`
     flex: 1;
-    margin-top: 32px;
-    padding: 0 38px;
+    justify-content: center;
+    margin: 32px 10px 0px 10px;
+    
 
     section {
         display: flex;
         > div {
-            max-width: 80%;
             flex: 1;
-            margin-right: 16px;  
+            margin-right: 5px;  
         }
 
         button {
@@ -33,10 +33,23 @@ export const TasksContainer = styled.div`
     padding: 0 38px;
     margin-top: 32px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 
     div {
         margin-top: 16px;
-        margin-right: 32px;
+        margin-right: 30px;
+    }
+`
+
+export const LogoutContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+
+    button {
+        margin-right: 15px;
+        width: 20vw;
+        max-width: 120px;
     }
 `

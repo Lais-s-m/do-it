@@ -81,6 +81,7 @@ function Signup({ authenticated, setAuthenticated }) {
                       label='Senha'
                       placeholder='Uma senha bem segura'
                       type='password'
+                      password={true}
                       register={register}
                       name='password'
                       error={errors.password?.message}
@@ -89,6 +90,7 @@ function Signup({ authenticated, setAuthenticated }) {
                       icon={FiLock}
                       label='Confirmação da senha' placeholder='Confirmação da senha'
                       type='password'
+                      password={true}
                       register={register}
                       name='passwordConfirm'
                       error={errors.passwordConfirm?.message}
