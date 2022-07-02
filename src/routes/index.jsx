@@ -26,6 +26,7 @@ function Routes () {
             <Route exact path="/signup">
                 <Signup
                      authenticated={authenticated}
+                     setAuthenticated = {setAuthenticated}
                 />
             </Route>
             <Route exact path="/login">

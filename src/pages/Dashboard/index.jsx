@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 import Card from '../../components/Card';
 import { FiEdit2 } from 'react-icons/fi';
 import api from '../../services/api';
-import toast from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import { Container, InputContainer, TasksContainer } from './styles';
 
@@ -83,10 +83,16 @@ function Dashboard ({authenticated}) {
         return <Redirect to='/login'/>
     }
 
+    const actualDate = new Date();
+
     return (
         <Container>
             <InputContainer onSubmit={handleSubmit(onSubmit)}>
-                <time> 28 de Junho de 2022 </time>
+                <time> {actualDate.toLocaleDateString("pt-BR", {
+                    day: '2-digit',
+                    month: 'long',
+                    year: 'numeric',
+                })} </time>
                 <section>
                     <Input
                         icon = {FiEdit2}
