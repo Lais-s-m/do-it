@@ -17,12 +17,12 @@ import { toast } from 'react-toastify';
 
 function Signup({ authenticated, setAuthenticated }) {
   const schema = yup.object().shape({
-    name: yup.string().required('Nome obrigatório'),
-    email: yup.string().email('Email inválido').required('Email obrigatório'),
-    password: yup.string().min(8, 'Mínimo de 8 dígitos').matches(
+    name: yup.string().required('Name required'),
+    email: yup.string().email('Invalid email').required('Email required'),
+    password: yup.string().min(8, 'Minimum of 8 digits').matches(
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-      'A senha deve conter no mínimo uma letra maiúscula, uma minúscula, um número e um caractere especial.').required('Senha obrigatória'),
-    passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Senhas não conferem').required('Confirmar senha obrigatório'),
+      'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.').required('Password Required'),
+    passwordConfirm: yup.string().oneOf([yup.ref('password')], 'Passwords do not match').required('Confirm password required'),
   })
 
   const {
@@ -40,13 +40,13 @@ function Signup({ authenticated, setAuthenticated }) {
 
     api.post("/user/register", user)
     .then((_) => {
-      toast.success('Conta criada com sucesso');
+      toast.success('Account created successfully');
       setAuthenticated(true);
       return history.push('/login');
     })
     .catch((err) => {
       console.log(err)
-      toast.error('Erro ao criar conta, tente outro email')});
+      toast.error('Error creating account, try another email')});
   }
 
   if (authenticated){
@@ -59,11 +59,11 @@ function Signup({ authenticated, setAuthenticated }) {
         <Content>
             <AnimationContainer>
                 <form onSubmit={handleSubmit(onSubmitFunction)}>
-                    <h1>Cadastro</h1>
+                    <h1>Register</h1>
                     <Input 
                       icon={FiUser}
-                      label='Nome'
-                      placeholder='Seu nome'
+                      label='Name'
+                      placeholder='your name'
                       register={register}
                       name='name'
                       error={errors.name?.message}
@@ -71,15 +71,15 @@ function Signup({ authenticated, setAuthenticated }) {
                     <Input 
                       icon={FiMail}
                       label='Email'
-                      placeholder='Seu melhor email'
+                      placeholder='your email'
                       register={register}
                       name='email'
                       error={errors.email?.message}
                       />
                     <Input 
                       icon={FiLock}
-                      label='Senha'
-                      placeholder='Uma senha bem segura'
+                      label='password'
+                      placeholder='enter a password'
                       type='password'
                       password={true}
                       register={register}
@@ -88,17 +88,17 @@ function Signup({ authenticated, setAuthenticated }) {
                       />
                     <Input 
                       icon={FiLock}
-                      label='Confirmação da senha' placeholder='Confirmação da senha'
+                      label='Password Validation' placeholder='type your password again'
                       type='password'
                       password={true}
                       register={register}
                       name='passwordConfirm'
                       error={errors.passwordConfirm?.message}
                       />
-                    <Button type='submit'>Enviar</Button>
+                    <Button type='submit'>Continue</Button>
                     <p>
-                    Já tem uma conta? 
-                    Faça seu <Link to='/login'>login</Link>
+                    Do you already have an account?
+                    Sign in <Link to='/login'>here</Link>
                     </p>
                 </form>
                 

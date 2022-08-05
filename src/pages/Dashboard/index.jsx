@@ -17,6 +17,7 @@ function Dashboard ({authenticated, setAuthenticated}) {
     const [tasks, setTasks] = useState([]);
 
     const [token] = useState(JSON.parse(localStorage.getItem("@Doit:token")) || "");
+    console.log(token);
 
     const { register, handleSubmit, formState } = useForm();
 
@@ -51,7 +52,7 @@ function Dashboard ({authenticated, setAuthenticated}) {
 
     const onSubmit = ({ task }) => {
         if (!task) {
-            return toast.error('Complete o campo para enviar uma tarefa');
+            return toast.error('Complete the field to send a task');
         }
 
         return new Promise((resolve)=> {
@@ -93,7 +94,7 @@ function Dashboard ({authenticated, setAuthenticated}) {
         
         setAuthenticated(false);
         localStorage.clear();
-        toast.success('Usuário deslogado com sucesso');
+        toast.success('User successfully logged off');
     }
     
     if (!authenticated) {
@@ -126,7 +127,7 @@ function Dashboard ({authenticated, setAuthenticated}) {
                     >
                     {isSubmitting ? 
                     (<span className="spinner-border spinner-border-sm"></span>):
-                    (<span>Criar</span>)}
+                    (<span>Create</span>)}
                     </Button>
                 </section>
             </InputContainer>

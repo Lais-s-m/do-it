@@ -18,8 +18,8 @@ import { Redirect } from 'react-router';
 
 function Login({ authenticated, setAuthenticated }) {
     const schema = yup.object().shape({
-      email: yup.string().email('Email inválido').required('Email obrigatório'),
-      password: yup.string().min(8, 'Mínimo de 8 dígitos').required('Senha obrigatória')
+      email: yup.string().email('Invalid email').required('Email required'),
+      password: yup.string().min(8, 'Minimum of 8 digits').required('Password Required')
     })
   
     const {
@@ -44,7 +44,7 @@ function Login({ authenticated, setAuthenticated }) {
 
         return history.push("/dashboard");
       })
-      .catch((err)=> toast.error('Email ou senha inválidos'));
+      .catch((err)=> toast.error('Invalid email or password'));
     };
 
     if (authenticated){
@@ -60,25 +60,25 @@ function Login({ authenticated, setAuthenticated }) {
                       <Input 
                         icon={FiMail}
                         label='Email'
-                        placeholder='Seu melhor email'
+                        placeholder='enter your email'
                         register={register}
                         name='email'
                         error={errors.email?.message}
                         />
                       <Input 
                         icon={FiLock}
-                        label='Senha'
-                        placeholder='Uma senha bem segura'
+                        label='Password'
+                        placeholder='enter your password'
                         type='password'
                         password = {true}
                         register={register}
                         name='password'
                         error={errors.password?.message}
                         />
-                      <Button type='submit'>Enviar</Button>
+                      <Button type='submit'>Continue</Button>
                       <p>
-                      Não tem uma conta? 
-                      Faça seu <Link to='/signup'>cadastro</Link>
+                      Do not have an account?
+                      Start <Link to='/signup'>here</Link>
                       </p>
                   </form>
                   
